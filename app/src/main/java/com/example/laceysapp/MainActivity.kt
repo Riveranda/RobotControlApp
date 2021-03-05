@@ -139,10 +139,6 @@ class MainActivity : AppCompatActivity() {
             println("Initiate")
             val executor = Executors.newSingleThreadExecutor() //more multithreading
             executor.execute { //from this point on, we will be on a separate thread
-                if(client == null){
-                    println("Client null")
-                }
-                println("Bool $bool")
                 while ((client == null || !client?.isConnected!!) && !bool) { //Loop until we are connected.
                     try {
                         println("Attempting to create a socket")
