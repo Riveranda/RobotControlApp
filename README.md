@@ -8,5 +8,8 @@ broader internet. </br>
 <h4> User Interface </h4>
 The UI was designed to be extremely simple, and obfuscate the user from the complicated backend.</br>
 The official colors of MSU, blue and gold were used to add some team spirit.</br>
-
+</br>
 ![User Interface](uiscreenshot.png?raw=true "UiScreenshot")</br>
+<h4>Driven by Python</h4>
+On the other end of the server socket, was a python program containing a simple server socket. From here</br>
+commands are read and sent to another python thread which manages the robot's motor controllers.  
