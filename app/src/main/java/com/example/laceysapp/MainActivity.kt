@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     // CHANGE PORT AND IPV4 HERE
     companion object {
         const val PORT = 12523
-        var IPV4 = "192.168.0.1"
+        var IPV4 = "loc"
     }
 
     private val prefName = "IP_ADDRESS"
@@ -29,10 +29,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        onClickListeners()
+    }
 
-        /**
-         * Here are your button listeners. This is an extremely simple way to do it, feel free to change it.
-         */
+    /**
+     * Button click listeners
+     */
+    private fun onClickListeners() {
         findViewById<Button>(R.id.forward).setOnClickListener {
             client?.write("1")
         }
@@ -88,7 +91,9 @@ class MainActivity : AppCompatActivity() {
         client?.disconnect(false)
         super.onDestroy()
     }
+
     private var reconnect = false
+
     /**
      * If the app is paused, we also need to disconnect
      */
@@ -99,7 +104,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-        if(reconnect){
+        if (reconnect) {
             client?.initiate()
             reconnect = false
         }
@@ -113,8 +118,10 @@ class MainActivity : AppCompatActivity() {
     class Client(private var context: Context?) {
         @Volatile
         private var client: Socket? = null // Server socket.
-        private val handler: Handler = Handler(Looper.getMainLooper()) //You must use a handler to perform any action on the UI thread from a separate thread
+        private val handler: Handler =
+            Handler(Looper.getMainLooper()) //You must use a handler to perform any action on the UI thread from a separate thread
         private val executor: ExecutorService = Executors.newSingleThreadExecutor() //multithreading
+
         // this is used to create a Toast(Popup) from a separate thread
         private var bool = false
 
