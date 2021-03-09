@@ -1,5 +1,6 @@
 package com.bender.robotics
 
+import android.annotation.SuppressLint
 import android.content.*
 import android.os.Bundle
 import android.os.IBinder
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+
     // CHANGE PORT AND IPV4 HERE
     companion object {
         const val PORT = 12523
@@ -26,7 +28,24 @@ class MainActivity : AppCompatActivity() {
         onClickListeners()
     }
 
-    private val connection = object: ServiceConnection{
+    override fun onStart() {
+        super.onStart()
+        Intent(this, SocketService::class.java).also { intent ->
+            bindService(intent, connection, Context.BIND_AUTO_CREATE)
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        unbindService(connection)
+    }
+
+    override fun onDestroy() {
+        mService.disconnect(false)
+        super.onDestroy()
+    }
+
+    private val connection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
             val binder = service as SocketService.LocalBinder
             mService = binder.getService()
@@ -39,22 +58,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        Intent(this, SocketService::class.java).also{
-            intent -> bindService(intent,connection,Context.BIND_AUTO_CREATE)
-        }
-    }
-
-
-    override fun onStop() {
-        super.onStop()
-        unbindService(connection)
-    }
-
     /**
      * Button click listeners
      */
+    @SuppressLint("ClickableViewAccessibility")
     private fun onClickListeners() {
         findViewById<Button>(R.id.forward).setOnClickListener {
             mService.write("1")
@@ -97,11 +104,6 @@ class MainActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
-    }
-
-    override fun onDestroy() {
-        mService.disconnect(false)
-        super.onDestroy()
     }
 
 }
