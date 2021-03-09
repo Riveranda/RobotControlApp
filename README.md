@@ -7,4 +7,5 @@ With the proper setup, sever sockets allow one to communicate over local network
 broader internet. </br>
 <h4> User Interface </h4>
 The UI was designed to be extremely simple, and obfuscate the user from the complicated backend.</br>
-
+The official colors of MSU, blue and gold were used to add some team spirit.</br>
+![User Interface](uiscreenshot.png?raw=true "UiScreenshot")</br>
