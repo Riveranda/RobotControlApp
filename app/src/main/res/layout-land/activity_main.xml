@@ -11,7 +11,7 @@
         android:id="@+id/iptext"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="32dp"
         android:layout_weight=".4"
         android:background="@drawable/roundedtextfield"
