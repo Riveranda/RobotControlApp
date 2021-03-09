@@ -1,5 +1,5 @@
 # RobotControlApp
-<h3>This project is a simple Android application, written in Kotlin, used to control a raspberry pi robot.</h3>
+<h3>A simple Android application, written in Kotlin, used to control a raspberry pi robot.</h3>
 <h4> Server Sockets </h4>
 Communication with the raspberry pi is done via a low level implementation of Kotlin's server sockets.</br>
 These server sockets are contained within an Android Service, and feature auto-reconnect and error handling. </br>
