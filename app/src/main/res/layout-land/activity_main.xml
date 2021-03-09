@@ -34,8 +34,8 @@
         android:layout_weight=".3"
         android:backgroundTint="#389E2D"
         android:text="Connect"
-        app:layout_constraintStart_toEndOf="@+id/disconnect"
-        app:layout_constraintTop_toTopOf="@+id/disconnect" />
+        app:layout_constraintStart_toEndOf="@+id/iptext"
+        app:layout_constraintTop_toTopOf="@+id/iptext" />
 
     <Button
         android:id="@+id/disconnect"
@@ -45,8 +45,8 @@
         android:layout_weight=".3"
         android:backgroundTint="#F41212"
         android:text="Disconnect"
-        app:layout_constraintStart_toEndOf="@+id/iptext"
-        app:layout_constraintTop_toTopOf="@+id/iptext" />
+        app:layout_constraintStart_toEndOf="@+id/connect"
+        app:layout_constraintTop_toTopOf="@+id/connect" />
 
     <Button
         android:id="@+id/forward"
@@ -85,8 +85,8 @@
         android:layout_weight=".4"
         android:text="@string/left"
         app:layout_constraintBottom_toBottomOf="@+id/backward"
-        app:layout_constraintEnd_toEndOf="@+id/disconnect"
-        app:layout_constraintStart_toStartOf="@+id/disconnect"
+        app:layout_constraintEnd_toEndOf="@+id/connect"
+        app:layout_constraintStart_toStartOf="@+id/connect"
         app:layout_constraintTop_toTopOf="@+id/forward"
         tools:ignore="NestedWeights" />
 
@@ -98,7 +98,7 @@
         android:layout_weight=".4"
         android:text="@string/right"
         app:layout_constraintBottom_toBottomOf="@+id/left"
-        app:layout_constraintEnd_toEndOf="@+id/connect"
+        app:layout_constraintEnd_toEndOf="@+id/disconnect"
         app:layout_constraintStart_toEndOf="@+id/left"
         app:layout_constraintTop_toTopOf="@+id/left" />
 
