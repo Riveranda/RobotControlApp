@@ -11,7 +11,7 @@
         android:id="@+id/iptext"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="32dp"
         android:layout_weight=".4"
         android:background="@drawable/roundedtextfield"
@@ -30,79 +30,76 @@
         android:id="@+id/connect"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_weight=".3"
         android:backgroundTint="#389E2D"
         android:text="Connect"
-        app:layout_constraintEnd_toEndOf="@+id/disconnect"
-        app:layout_constraintTop_toBottomOf="@+id/disconnect" />
+        app:layout_constraintStart_toEndOf="@+id/disconnect"
+        app:layout_constraintTop_toTopOf="@+id/disconnect" />
 
     <Button
         android:id="@+id/disconnect"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
         android:layout_weight=".3"
         android:backgroundTint="#F41212"
         android:text="Disconnect"
-        app:layout_constraintStart_toStartOf="@+id/iptext"
-        app:layout_constraintTop_toBottomOf="@+id/iptext" />
+        app:layout_constraintStart_toEndOf="@+id/iptext"
+        app:layout_constraintTop_toTopOf="@+id/iptext" />
 
     <Button
         android:id="@+id/forward"
-        android:layout_width="210dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="48dp"
-        android:layout_weight=".2"
-        android:text="@string/forward"
-        app:icon="@android:drawable/arrow_up_float"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connect" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forward">
-
-        <Button
-            android:id="@+id/left"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="2"
-            android:text="@string/left" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".5" />
-
-        <Button
-            android:id="@+id/right"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="2"
-            android:text="@string/right" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/backward"
-        android:layout_width="210dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginTop="32dp"
         android:layout_weight=".2"
+        android:text="@string/forward"
+        app:icon="@android:drawable/arrow_up_float"
+        app:layout_constraintEnd_toEndOf="@+id/iptext"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/iptext"
+        app:layout_constraintTop_toBottomOf="@+id/iptext" />
+
+    <Button
+        android:id="@+id/backward"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_weight=".2"
         android:text="@string/backward"
         app:icon="@android:drawable/arrow_down_float"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/forward"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/forward"
+        app:layout_constraintTop_toBottomOf="@+id/forward"
+        app:layout_constraintVertical_bias="0.372" />
+
+    <Button
+        android:id="@+id/left"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_weight=".4"
+        android:text="@string/left"
+        app:layout_constraintBottom_toBottomOf="@+id/backward"
+        app:layout_constraintEnd_toEndOf="@+id/disconnect"
+        app:layout_constraintStart_toStartOf="@+id/disconnect"
+        app:layout_constraintTop_toTopOf="@+id/forward"
+        tools:ignore="NestedWeights" />
+
+    <Button
+        android:id="@+id/right"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="32dp"
+        android:layout_weight=".4"
+        android:text="@string/right"
+        app:layout_constraintBottom_toBottomOf="@+id/left"
+        app:layout_constraintEnd_toEndOf="@+id/connect"
+        app:layout_constraintStart_toEndOf="@+id/left"
+        app:layout_constraintTop_toTopOf="@+id/left" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
